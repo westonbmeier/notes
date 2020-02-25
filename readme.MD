@@ -7,7 +7,7 @@ SO THAT I can organize my thoughts and keep track of tasks I need to complete
 In this application, we have the option of writing a note subject line and a note body. These notes are saved and able to be seen after the page is closed and reloaded. 
 
 ## Deployment ## 
-This application is deployed using Heroku. 
+This application is deployed using Heroku. https://murmuring-spire-96024.herokuapp.com/
 
 It is also here: https://westonbmeier.github.io/notes/
 
