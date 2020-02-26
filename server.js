@@ -25,26 +25,30 @@ app.get("/api/notes", function (req, res) {
   return res.json(readDatabase());
 });
 
+//Post note
+
 app.post("/api/notes", function (req, res) {
-  const newNote = req.body;
+  const postNewNote = req.body;
 
   let notes = readDatabase();
 
-  let nextId = 1;
+  let incrementId = 1;
   if (notes.length > 0) {
-    nextId = notes[notes.length - 1].id + 1;
+    incrementId = notes[notes.length - 1].id + 1;
   }
-  newNote.id = nextId;
-  notes.push(newNote);
+  postNewNote.id = incrementId;
+  notes.push(postNewNote);
 
-  return updateDatabase(res, notes, newNote);
+  return updateDatabase(res, notes, postNewNote);
 });
 
+// Delete note
+
 app.delete("/api/notes/:id", function (req, res) {
-  const idToDelete = parseInt(req.params.id);
+  const deleteId = parseInt(req.params.id);
   let notes = readDatabase();
 
-  const index = notes.findIndex((note) => note.id === idToDelete);
+  const index = notes.findIndex((note) => note.id === deleteId);
 
   notes.splice(index, 1);
 
